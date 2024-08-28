@@ -38,7 +38,20 @@ const AuthForm = ({ type }: { type: string }) => {
 
     try {
       if (type === "sign-up") {
-        const newUser = await signUp(values);
+        const userData = {
+          firstName: values.firstName!,
+          lastName: values.lastName!,
+          address1: values.address1!,
+          city: values.city!,
+          state: values.state!,
+          postalCode: values.postalCode!,
+          dateOfBirth: values.dateOfBirth!,
+          ssn: values.ssn!,
+          email: values.email,
+          password: values.password,
+        };
+
+        const newUser = await signUp(userData);
         setUser(newUser);
       }
       if (type === "sign-in") {
@@ -85,7 +98,7 @@ const AuthForm = ({ type }: { type: string }) => {
       </header>
       {user ? (
         <div>
-          <PlaidLink user={user} variant="primary"/>
+          <PlaidLink user={user} variant="primary" />
         </div>
       ) : (
         <>
@@ -105,16 +118,23 @@ const AuthForm = ({ type }: { type: string }) => {
                       control={form.control}
                       name="lastName"
                       label="Last Name"
-                      placeholder="ex: John"
+                      placeholder="ex: Smith"
                       formMessage="Please enter a valid name"
                     />
                   </div>
                   <CustomInput
                     control={form.control}
-                    name="address"
+                    name="address1"
                     label="Address"
                     placeholder="ex: John"
                     formMessage="Please enter a valid name"
+                  />
+                  <CustomInput
+                    control={form.control}
+                    name="city"
+                    label="City"
+                    placeholder="ex: Los Angeles"
+                    formMessage="Please enter a valid address"
                   />
                   <div className="flex gap-4">
                     <CustomInput
