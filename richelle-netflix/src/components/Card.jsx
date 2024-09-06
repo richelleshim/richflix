@@ -2,7 +2,7 @@ import React from "react";
 
 const Card = ({ title, rating, season, caption, image, year }) => {
   return (
-    <div className="bg-black text-white overflow-hidden shadow-lg w-64">
+    <div className="bg-black flex-col text-white overflow-hidden shadow-lg w-64">
       <div>
         <img src={image} alt={title} className="w-full h-40 object-cover" />
       </div>

@@ -82,7 +82,7 @@ nav {
 
 /* Hero Section */
 .hero {
-  @apply h-screen flex items-center justify-center bg-gray-800 text-white text-center;
+  @apply h-screen flex items-center justify-center  bg-gray-800 text-white text-center;
 }
 
 .hero-title {
